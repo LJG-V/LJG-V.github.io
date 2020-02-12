@@ -7,13 +7,13 @@ const ap = new APlayer({
         name: "你的答案",
         artist: '阿冗',
         url: 'https://music.163.com/song/media/outer/url?id=1400256289.mp3',
-        cover: 'http://p1.music.126.net/OlX-4S4L0Hdkyy_DQ27zag==/109951164459621658.jpg',
+        cover: 'http://p1.music.126.net/OlX-4S4L0Hdkyy_DQ27zag==/109951164459621658.jpg?param=130y130',
       },
 	  {
         name: '不找了',
         artist: '郭旭',
         url: 'https://music.163.com/song/media/outer/url?id=29850531.mp3',
-        cover: 'http://p2.music.126.net/o25ptaSygDb2rVdTpIKexw==/17793396672429120.jpg',
+        cover: 'http://p1.music.126.net/o25ptaSygDb2rVdTpIKexw==/17793396672429120.jpg?param=130y130',
       },
       {
         name: '你的酒馆对我打了烊',
