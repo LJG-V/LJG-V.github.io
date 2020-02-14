@@ -1194,7 +1194,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #b59042;
+  background: #62ffbf;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2003,43 +2003,6 @@ pre .javascript .function {
 #qr p {
   text-align: center;
 }
-.followme {
-  align-items: center;
-  background: #f5f5f5;
-  border-left: 3px solid #ff2a2a;
-  color: #bbb;
-  display: flex;
-  flex-direction: column;
-  margin: 2em 0 1em 0;
-  padding: 1em 1.5em;
-}
-.followme .social-list {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-}
-.followme .social-list .social-item {
-  margin: 0.5em 2em;
-}
-@media (max-width: 991px) {
-  .followme .social-list .social-item {
-    margin: 0.5em 0.75em;
-  }
-}
-.followme .social-list .social-link {
-  border: none;
-  display: inline-block;
-  text-align: center;
-}
-.followme .social-list .social-link .icon {
-  font-size: 1.75em;
-  height: 1.75em;
-  width: 1.75em;
-}
-.followme .social-list .social-link .label {
-  display: block;
-  font-size: 14px;
-}
 .category-all-page .category-all-title {
   text-align: center;
 }
@@ -2758,47 +2721,10 @@ ul.breadcrumb li + li:last-child {
     margin: 8px 0 0;
   }
 }
-/*photos*/
-.photos-page {
-  margin-top: -50px;
-}
-.img-list,
-.photos-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: flex-start;
-}
-.img-column {
-  display: flex;
-  flex-direction: column-reverse;
-}
-.img-column a,
-.photos-column a {
-  border-bottom: 0px;
-}
-.photos-item {
-  margin-bottom: -50px;
-}
-.photos-item p {
-  margin: -25px auto -10px;
-  max-width: 50%;
-  text-align: center;
-  font-size: 15px;
-  color: #222;
-  background: rgba(255,255,255,0.3);
-  border-radius: 7px;
-  border: 1px solid #222;
-  box-shadow: 0 8px 20px -8px rgba(0,0,0,0.3);
-}
-.posts-expand .post-body .photos-column a img {
-  height: 250px;
-  width: 300px;
-  object-fit: cover;
-}
-@media (max-width: 767px) {
-  .photos-item p {
-    min-width: 75px;
-    font-size: 13px;
-  }
+.post-copyright {
+  margin: 2em 0 0;
+  padding: 0.5em 1em;
+  border-left: 3px solid #ff1700;
+  background-color: #f9f9f9;
+  list-style: none;
 }
