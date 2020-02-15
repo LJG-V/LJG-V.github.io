@@ -1194,7 +1194,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #3416a2;
+  background: #7ee4e3;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2764,4 +2764,23 @@ ul.breadcrumb li + li:last-child {
   border-left: 3px solid #ff1700;
   background-color: #f9f9f9;
   list-style: none;
+}
+body {
+  background: url("https://cdn.jsdelivr.net/gh/LJG-V/blog_cdn@1.1/ablum/wall8.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+.content-wrap {
+  opacity: 0.9;
+}
+.sidebar {
+  opacity: 0.9;
+}
+.header-inner {
+  background: rgba(255,255,255,0.9);
+}
+.popup {
+  opacity: 0.9;
 }
