@@ -1194,7 +1194,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #cdffac;
+  background: #3416a2;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2720,6 +2720,43 @@ ul.breadcrumb li + li:last-child {
   .pagination {
     margin: 8px 0 0;
   }
+}
+.gallery-page {
+  margin-top: -50px;
+}
+.img-list,
+.gallery-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+.img-column {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.img-column a,
+.gallery-column a {
+  border-bottom: 0px;
+}
+.gallery-item {
+  margin-bottom: -50px;
+}
+.gallery-item p {
+  margin: -25px auto -10px;
+  max-width: 50%;
+  text-align: center;
+  font-size: 15px;
+  color: #222;
+  background: rgba(255,255,255,0.3);
+  border-radius: 7px;
+  border: 1px solid #222;
+  box-shadow: 0 8px 20px -8px rgba(0,0,0,0.3);
+}
+.posts-expand .post-body .gallery-column a img {
+  height: 250px;
+  width: 300px;
+  object-fit: cover;
 }
 .post-copyright {
   margin: 2em 0 0;
