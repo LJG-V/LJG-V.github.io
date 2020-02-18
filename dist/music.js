@@ -32,6 +32,12 @@ const ap = new APlayer({
         artist: 'G.E.M.邓紫棋',
         url: 'https://music.163.com/song/media/outer/url?id=1405283464.mp3',
         cover: 'http://p2.music.126.net/KTo5oSxH3CPA5PBTeFKDyA==/109951164581432409.jpg?param=130y130',
+      },
+	{
+        name: '冬眠',
+        artist: '司南',
+        url: 'https://music.163.com/song/media/outer/url?id=1398663411.mp3',
+        cover: 'http://p2.music.126.net/4KDBaQXnQywQovmqvjx-8Q==/109951164444131697.jpg?param=130y130',
       }
     ]
 });
