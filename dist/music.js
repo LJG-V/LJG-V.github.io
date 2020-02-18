@@ -38,6 +38,30 @@ const ap = new APlayer({
         artist: '司南',
         url: 'https://music.163.com/song/media/outer/url?id=1398663411.mp3',
         cover: 'http://p2.music.126.net/4KDBaQXnQywQovmqvjx-8Q==/109951164444131697.jpg?param=130y130',
+      },
+{
+        name: '国王与乞丐',
+        artist: '华晨宇 / 杨宗纬',
+        url: 'https://music.163.com/song/media/outer/url?id=32835565.mp3',
+        cover: 'http://p2.music.126.net/UsSAd3Bdf77DjhCuTSEvUw==/109951163077613693.jpg?param=130y130',
+      },
+{
+        name: '说散就散',
+        artist: '袁娅维',
+        url: 'https://music.163.com/song/media/outer/url?id=523251118.mp3',
+        cover: 'http://p1.music.126.net/Yj2g6u9X6UCZPaRLCoJ5mQ==/109951163169027515.jpg?param=130y130',
+      },
+{
+        name: '出山',
+        artist: '花粥 / 王胜娚',
+        url: 'https://music.163.com/song/media/outer/url?id=1313354324.mp3',
+        cover: 'http://p2.music.126.net/xUAfdMHdXhu3BmO4g8nOYA==/109951163573311341.jpg?param=130y130',
+      },
+{
+        name: '理想三旬',
+        artist: '陈鸿宇',
+        url: 'https://music.163.com/song/media/outer/url?id=31445772.mp3',
+        cover: 'http://p1.music.126.net/cqTTEPAaxXG3cOwaE4E_-g==/109951163104103366.jpg?param=130y130',
       }
     ]
 });
