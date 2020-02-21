@@ -1,9 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>琐事02.21</title>
+    <url>/2020/02/21/%E7%90%90%E4%BA%8B02-21/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>唉！早上如往常般醒来，然后拿起手机等到10点，打开网址，输入准考证号，英语4级还是未过，412，比上次高一点。也不知道是我这次刷了点卷子的效果，还是这次简单了…</p>
+<p>大学生活都一年半了，还没有过四级，这可真是难受，下面在这里定下上半年的部分计划：</p>
+<hr>
+<ul>
+<li><strong>备考四级</strong>：每天一篇真题阅读理解，量虽不多，必须把里面的生词记下来（就不背词汇表了），毕竟根据我高中的效果，还是有点用处的。先这样把词汇量弄上去，后期再练习听力吧。</li>
+<li><strong>三级网络</strong>：三级网络虽然去年暑假准备了很久，做了思维导图，看了视频，也刷完了题，但是，最后竟然不及格！唉，真懵！虽说今年考试时间延迟了，但是也需要再拾起了。二刷视频吧，再看一看思维导图。</li>
+<li><strong>前端知识学习</strong>：Java基础其实学的不牢，也还没有学完，像IO流，多线程，泛型等。但还是先丢下吧，等回学校继续，现在有时间看一看html的知识，一是为java以后的学习做准备，二是区块链项目也需要。</li>
+</ul>
+<hr>
+<p>暂时就这些吧，为自己加油！听首音乐~</p>
+
+        <div id="aplayer-qmynIZja" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+            <pre class="aplayer-lrc-content"></pre>
+        </div>
+        <script>
+          var ap = new APlayer({
+            element: document.getElementById("aplayer-qmynIZja"),
+            narrow: false,
+            autoplay: false,
+            showlrc: false,
+            music: {
+              title: "夜空中最亮的星",
+              author: "逃跑计划",
+              url: "http://music.163.com/song/media/outer/url?id=25706282.mp3",
+              pic: "http://p1.music.126.net/d541jx7SqoDzVkenhmtg6g==/19193074974743620.jpg?param=130y130",
+              lrc: ""
+            }
+          });
+          window.aplayers || (window.aplayers = []);
+          window.aplayers.push(ap);
+        </script>
+
+<p><img src="https://cdn.jsdelivr.net/gh/LJG-V/blog_cdn@suibi/picture/%E9%9A%8F%E7%AC%941.jpg" alt=""></p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>以太坊开发——Truffle的介绍与使用</title>
     <url>/2020/02/16/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%BC%80%E5%8F%91%E2%80%94%E2%80%94Truffle%E7%9A%84%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>​        </p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>​        </p>
 <p>最近在跟老师做区块链方向的项目，奈何自己的知识面太窄，没学过前端，对于常用的web3，JavaScript等都不够熟悉，在做项目过程中经常碰壁，还找不到解决方法，多番几次遇到无从下手的问题！ε=(´ο｀*)))唉，心酸，终究自己现在还不是一个大佬。不管怎样，还是一项一项任务学习解决吧，不然可能花了大量时间，还一事无成！</p>
 <p>接下来谈一谈在以太坊开发中Truffle的使用，加深一下自己的理解。</p>
 <hr>
@@ -89,7 +133,7 @@
   <entry>
     <title>图书管理系统（Java+MySQL实现）</title>
     <url>/2020/02/15/%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%EF%BC%88Java-MySQL%E5%AE%9E%E7%8E%B0/</url>
-    <content><![CDATA[<h1 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h1><blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h1><blockquote>
 <p>​        本系统主要实现了JDBC对图书信息进行增删改查，结构分为读者登录、管理员登录。主要功能为读者登录可以浏览读者自己的借阅信息，可以对自己信息进行维护。管理员登录可以浏览图书的信息，显示当前数据库中书籍借阅情况，可以对图书信息进行维护。</p>
 </blockquote>
 <h1 id="设计思路"><a href="#设计思路" class="headerlink" title="设计思路"></a>设计思路</h1><ul>
@@ -199,7 +243,7 @@
   <entry>
     <title>分布式文件系统-HDFS</title>
     <url>/2020/01/30/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E2%80%94HDFS/</url>
-    <content><![CDATA[<p><strong>本文转载于：<a href="https://paperwj.top" target="_blank" rel="noopener">Paperwjun的博客</a></strong></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>本文转载于：<a href="https://paperwj.top" target="_blank" rel="noopener">Paperwjun的博客</a></strong></p>
 <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2><p>仅用于个人学习使用且<strong>电脑配置有限</strong>，因此搭建伪分布式模式，即在单节点上启动NameNode、DataNode、SecondaryNameNode等进程，但操作、原理与完全分布式模式一样仅学习还是够用的。HDFS作为Hadoop两大重要组成部分之一，主要解决海量数据存储问题，<a href="https://baike.baidu.com/item/HDFS" target="_blank" rel="noopener">详细信息点击这里哟！</a><br>下面是我的实验环境（Hadoop大多运行在Linux系统下）</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">服务器：Centos 6</span><br><span class="line">虚拟机：VMware Workstation Pro 13.0</span><br><span class="line">SSH：MobaXterm</span><br><span class="line">PC：Win10</span><br></pre></td></tr></table></figure>
 

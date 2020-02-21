@@ -1,6 +1,7 @@
 const ap = new APlayer({
     container: document.getElementById('aplayer'),
     fixed: true,
+    mutex: true,
     autoplay: false,
     audio: [
 	{
