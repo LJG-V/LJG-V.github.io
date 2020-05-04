@@ -1,6 +1,249 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Java基础（集合）</title>
+    <url>/2020/04/27/Java%E5%9F%BA%E7%A1%80%EF%BC%88%E9%9B%86%E5%90%88%EF%BC%89/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Java集合可分为 <strong>Collection</strong> 和 <strong>Map</strong> 两种体系：</p>
+<ul>
+<li><strong>Collection接口</strong>：单列数据，定义了存取一组对象的方法的集合<ul>
+<li><strong>List</strong>：元素有序、可重复的集合</li>
+<li><strong>Set</strong>：元素无序、不可重复的集合</li>
+</ul>
+</li>
+<li><strong>Map接口</strong>：双列数据，保存具有映射关系的键值对的集合</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/LJG-V/blog_cdn@3.1/picture/collection%E6%8E%A5%E5%8F%A3.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LJG-V/blog_cdn@3.1/picture/map%E6%8E%A5%E5%8F%A3.png" alt=""></p>
+<h1 id="Collection接口中的方法"><a href="#Collection接口中的方法" class="headerlink" title="Collection接口中的方法"></a>Collection接口中的方法</h1><ul>
+<li><p><strong>add(Object e)</strong>:将元素e添加到集合中</p>
+</li>
+<li><p><strong>size()</strong>:获取添加的元素的个数</p>
+</li>
+<li><p><strong>addAll(Collection coll1)</strong>:将coll1集合中的元素添加到当前的集合中</p>
+</li>
+<li><p><strong>isEmpty()</strong>:判断当前集合是否为空</p>
+</li>
+<li><p><strong>clear()</strong>:清空集合元素</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Collection coll = <span class="keyword">new</span> ArrayList();</span><br><span class="line"></span><br><span class="line"><span class="comment">//add(Object e):将元素e添加到集合coll中</span></span><br><span class="line">coll.add(<span class="string">"AA"</span>);</span><br><span class="line">coll.add(<span class="string">"BB"</span>);</span><br><span class="line">coll.add(<span class="number">123</span>);<span class="comment">//自动装箱</span></span><br><span class="line">coll.add(<span class="keyword">new</span> Date());</span><br><span class="line"></span><br><span class="line"><span class="comment">//size():获取添加的元素的个数</span></span><br><span class="line">System.out.println(coll.size());<span class="comment">//4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//addAll(Collection coll1):将coll1集合中的元素添加到当前的集合中</span></span><br><span class="line">Collection coll1 = <span class="keyword">new</span> ArrayList();</span><br><span class="line">coll1.add(<span class="number">456</span>);</span><br><span class="line">coll1.add(<span class="string">"CC"</span>);</span><br><span class="line">coll.addAll(coll1);</span><br><span class="line"></span><br><span class="line">System.out.println(coll.size());<span class="comment">//6</span></span><br><span class="line">System.out.println(coll);</span><br><span class="line"></span><br><span class="line"><span class="comment">//clear():清空集合元素</span></span><br><span class="line">coll.clear();</span><br><span class="line"></span><br><span class="line"><span class="comment">//isEmpty():判断当前集合是否为空</span></span><br><span class="line">System.out.println(coll.isEmpty());</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><strong>contains(Object obj)</strong>:判断当前集合中是否包含obj，在判断时会调用obj对象所在类的equals()</p>
+</li>
+<li><p><strong>containsAll(Collection coll1)</strong>:判断形参coll1中的所有元素是否都存在于当前集合中</p>
+</li>
+<li><p><strong>remove(Object obj)</strong>:从当前集合中移除obj元素。</p>
+</li>
+<li><p><strong>removeAll(Collection coll1)</strong>(差集)：从当前集合中移除coll1中所有的元素。</p>
+</li>
+<li><p><strong>retainAll(Collection coll1)</strong>:交集：获取当前集合和coll1集合的交集，并返回给当前集合</p>
+</li>
+<li><p><strong>equals(Object obj)</strong>:要想返回true，需要当前集合和形参集合的元素都相同。</p>
+</li>
+<li><p><strong>hashCode()</strong>:返回当前对象的哈希值</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Collection coll = <span class="keyword">new</span> ArrayList();</span><br><span class="line">coll.add(<span class="number">123</span>);</span><br><span class="line">coll.add(<span class="number">456</span>);</span><br><span class="line"><span class="comment">//Person p = new Person("Jerry",20);</span></span><br><span class="line"><span class="comment">//coll.add(p);</span></span><br><span class="line">coll.add(<span class="keyword">new</span> Person(<span class="string">"Jerry"</span>,<span class="number">20</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//1.contains(Object obj):判断当前集合中是否包含obj</span></span><br><span class="line"><span class="comment">//我们在判断时会调用obj对象所在类的equals()。</span></span><br><span class="line"><span class="keyword">boolean</span> contains = coll.contains(<span class="number">123</span>);</span><br><span class="line">System.out.println(contains);</span><br><span class="line">System.out.println(coll.contains(<span class="keyword">new</span> String(<span class="string">"Tom"</span>)));</span><br><span class="line"><span class="comment">//System.out.println(coll.contains(p));//true</span></span><br><span class="line">System.out.println(coll.contains(<span class="keyword">new</span> Person(<span class="string">"Jerry"</span>,<span class="number">20</span>)));<span class="comment">//false --&gt;true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//2.containsAll(Collection coll1):判断形参coll1中的所有元素是否都存在于当前集合中。</span></span><br><span class="line">Collection coll1 = Arrays.asList(<span class="number">123</span>,<span class="number">4567</span>);</span><br><span class="line">System.out.println(coll.containsAll(coll1));</span><br><span class="line"></span><br><span class="line"><span class="comment">//3.remove(Object obj):从当前集合中移除obj元素。</span></span><br><span class="line">coll.remove(<span class="number">123</span>);</span><br><span class="line">System.out.println(coll);</span><br><span class="line"></span><br><span class="line"><span class="comment">//4. removeAll(Collection coll1):差集：从当前集合中移除coll1中所有的元素。</span></span><br><span class="line">Collection coll1 = Arrays.asList(<span class="number">123</span>,<span class="number">456</span>);</span><br><span class="line">coll.removeAll(coll1);</span><br><span class="line">System.out.println(coll);</span><br><span class="line"></span><br><span class="line"><span class="comment">//5.retainAll(Collection coll1):交集：获取当前集合和coll1集合的交集，并返回给当前集合</span></span><br><span class="line">Collection coll1 = Arrays.asList(<span class="number">123</span>,<span class="number">456</span>,<span class="number">789</span>);</span><br><span class="line">coll.retainAll(coll1);</span><br><span class="line">System.out.println(coll);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>集合 —&gt;数组</strong>：toArray()</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Object[] arr = coll.toArray();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; arr.length;i++)&#123;</span><br><span class="line">    	System.out.println(arr[i]);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>数组 —&gt;集合</strong>:调用Arrays类的静态方法asList()</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;String&gt; list = Arrays.asList(<span class="keyword">new</span> String[]&#123;<span class="string">"AA"</span>, <span class="string">"BB"</span>, <span class="string">"CC"</span>&#125;);</span><br><span class="line">System.out.println(list);</span><br></pre></td></tr></table></figure>
+
+<h1 id="集合元素的遍历操作——迭代器Iterator接口"><a href="#集合元素的遍历操作——迭代器Iterator接口" class="headerlink" title="集合元素的遍历操作——迭代器Iterator接口"></a>集合元素的遍历操作——迭代器Iterator接口</h1><ul>
+<li><strong>hasNext()和next()方法</strong>：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Collection&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">list.add(<span class="string">"a"</span>);</span><br><span class="line">list.add(<span class="string">"b"</span>);</span><br><span class="line">list.add(<span class="string">"c"</span>);</span><br><span class="line">System.out.println(list);</span><br><span class="line">System.out.println(list.size());</span><br><span class="line">Iterator&lt;String&gt; it = list.iterator();   <span class="comment">//迭代器</span></span><br><span class="line"><span class="keyword">while</span> (it.hasNext())&#123;		<span class="comment">//遍历集合元素</span></span><br><span class="line">    String str = it.next();</span><br><span class="line">    System.out.println(str);</span><br><span class="line">    <span class="keyword">if</span>(<span class="string">"b"</span>.equals(str))&#123;	<span class="comment">//remove()方法</span></span><br><span class="line">        it.remove();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>内部定义了remove()方法，可以在遍历的时候，删除集合中的元素。不过此方法不同于集合直接调用remove()。</li>
+</ul>
+<h1 id="Collection子接口——List接口"><a href="#Collection子接口——List接口" class="headerlink" title="Collection子接口——List接口"></a>Collection子接口——List接口</h1><h2 id="常用实现类"><a href="#常用实现类" class="headerlink" title="常用实现类"></a>常用实现类</h2><ul>
+<li>ArrayList</li>
+<li>LinkedList</li>
+<li>Vector</li>
+</ul>
+<p><strong>三者异同：</strong></p>
+<p>​    同：存储有序的、可重复的数据。</p>
+<p>​    异：<strong>ArrayList</strong>：作为List接口的主要实现类；线程不安全的，效率高；底层使用Object[] elementData存储。</p>
+<p>​            <strong>LinkedList</strong>：对于频繁的插入、删除操作，使用此类效率比ArrayList高；底层使用双向链表存储。</p>
+<p>​            <strong>Vector</strong>：作为List接口的古老实现类；线程安全的，效率低；底层使用Object[] elementData存储</p>
+<h2 id="List接口常用方法"><a href="#List接口常用方法" class="headerlink" title="List接口常用方法"></a>List接口常用方法</h2><p><strong>void add(int index, Object ele)</strong>:    在index位置插入ele元素<br><strong>boolean addAll(int index, Collection eles)</strong>:    从index位置开始将eles中的所有元素添加进来<br><strong>Object get(int index)</strong>:    获取指定index位置的元素<br><strong>int indexOf(Object obj)</strong>:    返回obj在集合中首次出现的位置<br><strong>int lastIndexOf(Object obj)</strong>:    返回obj在当前集合中末次出现的位置<br><strong>Object remove(int index)</strong>:    移除指定index位置的元素，并返回此元素<br><strong>Object set(int index, Object ele)</strong>:    设置指定index位置的元素为ele<br><strong>List subList(int fromIndex, int toIndex)</strong>:    返回从fromIndex到toIndex位置的子集合(左闭右开)</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"> list.add(<span class="string">"A"</span>);</span><br><span class="line"> list.add(<span class="string">"B"</span>);</span><br><span class="line"> list.add(<span class="string">"C"</span>);</span><br><span class="line"> list.add(<span class="string">"D"</span>);</span><br><span class="line"></span><br><span class="line">list.add(<span class="number">2</span>,<span class="string">"我"</span>);</span><br><span class="line">System.out.println(list);   <span class="comment">//[A, B, 我, C, D]</span></span><br><span class="line"></span><br><span class="line">String str = list.get(<span class="number">1</span>);</span><br><span class="line">System.out.println(str);    <span class="comment">//B</span></span><br><span class="line"></span><br><span class="line">System.out.println(list.indexOf(<span class="string">"B"</span>));  <span class="comment">//1</span></span><br><span class="line"></span><br><span class="line">list.remove(<span class="number">4</span>);</span><br><span class="line">System.out.println(list);     <span class="comment">//[A, B, 我, C]</span></span><br><span class="line"></span><br><span class="line">list.set(<span class="number">3</span>,<span class="string">"爱"</span>);</span><br><span class="line">System.out.println(list);      <span class="comment">//[A, B, 我, 爱]</span></span><br><span class="line"></span><br><span class="line">System.out.println(list.subList(<span class="number">1</span>,<span class="number">3</span>));  <span class="comment">//[B, 我]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>常用方法</strong>：</p>
+<ul>
+<li><p>增：add(Object obj)</p>
+</li>
+<li><p>删：remove(int index) / remove(Object obj)</p>
+</li>
+<li><p>改：set(int index, Object ele)</p>
+</li>
+<li><p>查：get(int index)</p>
+</li>
+<li><p>插：add(int index, Object ele)</p>
+</li>
+<li><p>长度：size()</p>
+</li>
+<li><p>遍历：① Iterator迭代器方式</p>
+<pre><code>② 增强for循环
+③ 普通的循环</code></pre><p>//方式一：Iterator迭代器方式      </p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Iterator iterator &#x3D; list.iterator();</span><br><span class="line">      while(iterator.hasNext())&#123;</span><br><span class="line">          System.out.println(iterator.next());</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+
+<p>  //方式二：增强for循环</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for(Object obj : list)&#123;</span><br><span class="line">     System.out.println(obj);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>//方式三：普通for循环</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for(int i &#x3D; 0;i &lt; list.size();i++)&#123;</span><br><span class="line">       System.out.println(list.get(i));</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<h1 id="Collection子接口——Set接口"><a href="#Collection子接口——Set接口" class="headerlink" title="Collection子接口——Set接口"></a>Collection子接口——Set接口</h1><h2 id="常用实现类-1"><a href="#常用实现类-1" class="headerlink" title="常用实现类"></a>常用实现类</h2><ul>
+<li>HashSet</li>
+<li>LinkedHashSet</li>
+<li>TreeSet</li>
+</ul>
+<p><strong>三者异同：</strong></p>
+<p>​    同：存储无序的、不可重复的数据。</p>
+<p>​    异：<strong>HashSet</strong>：作为Set接口的主要实现类；线程不安全的；可以存储null值</p>
+<p>​            <strong>LinkedHashSet</strong>：作为HashSet的子类；遍历其内部数据时，可以按照添加的顺序遍历</p>
+<p>​            <strong>TreeSet</strong>：可以按照添加对象的指定属性，进行排序</p>
+<hr>
+<h2 id="Set接口的无序与不可重复的理解"><a href="#Set接口的无序与不可重复的理解" class="headerlink" title="Set接口的无序与不可重复的理解"></a>Set接口的无序与不可重复的理解</h2><p> 以HashSet为例说明：</p>
+<ol>
+<li><p><strong>无序性</strong>：不等于随机性。存储的数据在底层数组中并非按照数组索引的顺序添加，而是根据数据的<strong>哈希值</strong>决定的。</p>
+</li>
+<li><p><strong>不可重复性</strong>：保证添加的元素按照<strong>equals()</strong>判断时，不能返回true。即：相同的元素只能添加一个。</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Set set = <span class="keyword">new</span> HashSet();</span><br><span class="line">set.add(<span class="number">1</span>);</span><br><span class="line">set.add(<span class="number">2</span>);</span><br><span class="line">set.add(<span class="string">"A"</span>);</span><br><span class="line">set.add(<span class="number">1</span>);</span><br><span class="line">Iterator it = set.iterator();</span><br><span class="line"><span class="keyword">while</span> (it.hasNext())&#123;</span><br><span class="line">	System.out.println(it.next());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1</span><br><span class="line">A</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<h2 id="HashSet添加元素的过程"><a href="#HashSet添加元素的过程" class="headerlink" title="HashSet添加元素的过程"></a>HashSet添加元素的过程</h2><p>比如向HashSet中添加元素a,首先调用元素a所在类的<strong>hashCode()</strong>方法，计算元素a的哈希值，此哈希值接着通过某种算法计算出在HashSet底层数组中的存放位置（即为：索引位置），判断数组此位置上是否已经有元素：<br>        如果此位置上没有其他元素，则元素a添加成功。(<strong>情况1</strong>)<br>        如果此位置上有其他元素b(或以链表形式存在的多个元素），则比较元素a与元素b的hash值：<br>         如果hash值不相同，则元素a添加成功。(<strong>情况2</strong>)<br>         如果hash值相同，进而需要调用元素a所在类的equals()方法：<br>                 equals()返回true,元素a添加失败<br>                 equals()返回false,则元素a添加成功。(<strong>情况3</strong>)</p>
+<blockquote>
+<p>对于添加成功的情况2和情况3而言：元素a 与已经存在指定索引位置上数据以链表的方式存储。<br> jdk 7 :元素a放到数组中，指向原来的元素。<br> jdk 8 :原来的元素在数组中，指向元素a</p>
+<p>总结：七上八下（类似于哈希表）</p>
+</blockquote>
+<p><u><strong>HashSet底层：数组+链表的结构</strong></u></p>
+<p><span style="color:red"><strong>注</strong></span>：</p>
+<ol>
+<li>Set接口中<strong>没有额外定义新的方法</strong>，使用的都是Collection中声明过的方法。</li>
+<li><strong>要求</strong>：向Set(主要指：HashSet、LinkedHashSet)中添加的数据，其所在的类一定要<span style="color:red"><strong>重写hashCode()和equals()</strong></span>方法。其中，重写的hashCode()和equals()尽可能<strong>保持一致性</strong>：<span style="color:red">使相等的对象必须具有相等的散列码</span>。</li>
+<li>重写两个方法的小技巧：对象中用作 equals() 方法比较的 Field，都应该用来计算 hashCode 值。</li>
+</ol>
+<h2 id="LinkedHashSet的使用"><a href="#LinkedHashSet的使用" class="headerlink" title="LinkedHashSet的使用"></a>LinkedHashSet的使用</h2><p>LinkedHashSet作为HashSet的子类，在添加数据的同时，每个数据还维护了两个引用，记录此数据前一个数据和后一个数据。<br>优点：对于频繁的遍历操作，LinkedHashSet效率高于HashSet</p>
+<h2 id="TreeSet的自然排序和定制排序"><a href="#TreeSet的自然排序和定制排序" class="headerlink" title="TreeSet的自然排序和定制排序"></a>TreeSet的自然排序和定制排序</h2><p><span style="color:red"><strong>注</strong></span>：</p>
+<ul>
+<li>向TreeSet中添加的数据，要求是<strong>相同类</strong>的对象。</li>
+<li>两种排序方式：自然排序（实现Comparable接口） 和 定制排序（Comparator）<ul>
+<li>自然排序中，比较两个对象是否相同的标准为：compareTo()返回0，不再是equals().</li>
+<li>定制排序中，比较两个对象是否相同的标准为：compare()返回0，不再是equals().</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">TreeSet set = <span class="keyword">new</span> TreeSet();</span><br><span class="line">set.add(<span class="number">34</span>);</span><br><span class="line">set.add(-<span class="number">34</span>);</span><br><span class="line">set.add(<span class="number">43</span>);</span><br><span class="line">set.add(<span class="number">11</span>);</span><br><span class="line">set.add(<span class="number">8</span>);</span><br><span class="line">Iterator it = set.iterator();</span><br><span class="line"><span class="keyword">while</span> (it.hasNext())&#123;</span><br><span class="line">	System.out.println(it.next());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-34</span><br><span class="line">8</span><br><span class="line">11</span><br><span class="line">34</span><br><span class="line">43</span><br></pre></td></tr></table></figure>
+
+<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">HashSet set = <span class="keyword">new</span> HashSet();</span><br><span class="line">Person p1 = <span class="keyword">new</span> Person(<span class="number">1001</span>,<span class="string">"AA"</span>);</span><br><span class="line">Person p2 = <span class="keyword">new</span> Person(<span class="number">1002</span>,<span class="string">"BB"</span>);</span><br><span class="line"></span><br><span class="line">set.add(p1);</span><br><span class="line">set.add(p2);</span><br><span class="line">System.out.println(set);</span><br><span class="line"></span><br><span class="line">p1.name = <span class="string">"CC"</span>;</span><br><span class="line">set.remove(p1);</span><br><span class="line">System.out.println(set);</span><br><span class="line">set.add(<span class="keyword">new</span> Person(<span class="number">1001</span>,<span class="string">"CC"</span>));</span><br><span class="line">System.out.println(set);</span><br><span class="line">set.add(<span class="keyword">new</span> Person(<span class="number">1001</span>,<span class="string">"AA"</span>));</span><br><span class="line">System.out.println(set);</span><br></pre></td></tr></table></figure>
+
+<p>其中Person类中重写了hashCode()和equal()方法</p>
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[Person&#123;id&#x3D;1002, name&#x3D;&#39;BB&#39;&#125;, Person&#123;id&#x3D;1001, name&#x3D;&#39;AA&#39;&#125;]</span><br><span class="line">[Person&#123;id&#x3D;1002, name&#x3D;&#39;BB&#39;&#125;, Person&#123;id&#x3D;1001, name&#x3D;&#39;CC&#39;&#125;]</span><br><span class="line">[Person&#123;id&#x3D;1002, name&#x3D;&#39;BB&#39;&#125;, Person&#123;id&#x3D;1001, name&#x3D;&#39;CC&#39;&#125;, Person&#123;id&#x3D;1001, name&#x3D;&#39;CC&#39;&#125;]</span><br><span class="line">[Person&#123;id&#x3D;1002, name&#x3D;&#39;BB&#39;&#125;, Person&#123;id&#x3D;1001, name&#x3D;&#39;CC&#39;&#125;, Person&#123;id&#x3D;1001, name&#x3D;&#39;CC&#39;&#125;,      	Person&#123;id&#x3D;1001, name&#x3D;&#39;AA&#39;&#125;]</span><br></pre></td></tr></table></figure>
+
+<h1 id="Map接口"><a href="#Map接口" class="headerlink" title="Map接口"></a>Map接口</h1><h2 id="常用实现类-2"><a href="#常用实现类-2" class="headerlink" title="常用实现类"></a>常用实现类</h2><ul>
+<li>HashMap</li>
+<li>TreeMap</li>
+<li>Hashtable</li>
+</ul>
+<p><strong>三者异同：</strong></p>
+<p>​    同：双列数据，存储key-value对的数据。</p>
+<p>​    异：<strong>HashMap</strong>：作为Map的主要实现类；线程不安全的，效率高；存储null的key和value</p>
+<p>​            <strong>TreeMap</strong>：保证按照添加的key-value对进行排序，实现排序遍历。此时考虑key的自然排序或定制排序，底层使用红黑树</p>
+<p>​            <strong>Hashtable</strong>：作为古老的实现类；线程安全的，效率低；不能存储null的key和value</p>
+<p><strong><u>HashMap的底层</u></strong>：<strong><u>数组+链表</u></strong>  （jdk7及之前）</p>
+<p>​                                 <strong><u>数组+链表+红黑树</u></strong> （jdk 8）</p>
+<hr>
+<h2 id="Map结构的说明"><a href="#Map结构的说明" class="headerlink" title="Map结构的说明"></a>Map结构的说明</h2><p>Map中的<strong>key</strong>：无序的、不可重复的，使用Set存储所有的key  —&gt; key所在的类要重写equals()和hashCode() （以HashMap为例）；</p>
+<p>Map中的<strong>value</strong>：无序的、可重复的，使用Collection存储所有的value —&gt;value所在的类要重写equals()；</p>
+<p>Map中的<strong>entry</strong>：一个键值对<strong>key-value</strong>构成了一个Entry对象，无序的、不可重复的，使用Set存储所有的entry。</p>
+<h2 id="HashMap添加元素的过程"><a href="#HashMap添加元素的过程" class="headerlink" title="HashMap添加元素的过程"></a>HashMap添加元素的过程</h2><p><code>HashMap map = new HashMap()；</code>在实例化以后，底层创建了长度是16的一维数组Entry[] table。</p>
+<p><code>map.put(key1,value1);</code></p>
+<p>首先，调用key1所在类的<strong>hashCode()</strong>计算key1哈希值，此哈希值经过某种算法计算以后，得到在Entry数组中的存放位置。</p>
+<ul>
+<li><p>如果此位置上的数据<strong>为空</strong>，此时的key1-value1添加成功。        (<strong>情况1</strong>)</p>
+</li>
+<li><p>如果此位置上的数据<strong>不为空</strong>，(意味着此位置上存在一个或多个数据(以链表形式存在)),比较key1和已经存在的一个或多个数据的哈希值：</p>
+<ul>
+<li>如果key1的哈希值与已经存在的数据的哈希值都<strong>不相同</strong>，此时key1-value1添加成功。        (<strong>情况2</strong>)</li>
+<li>如果key1的哈希值和已经存在的某一个数据(key2-value2)的哈希值<strong>相同</strong>，继续比较：调用key1所在类的<strong>equals(key2)</strong>方法，比较：<ul>
+<li>如果equals()返回false:此时key1-value1添加成功。                (<strong>情况3</strong>)</li>
+<li>如果equals()返回true:使用value1<strong>替换value2</strong>。                                                                                                                                                                                </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>补充</strong>：关于情况2和情况3：此时key1-value1和原来的数据以链表的方式存储。</p>
+<blockquote>
+<p>在不断的添加过程中，会涉及到扩容问题，当超出临界值(且要存放的位置非空)时，扩容。默认的扩容方式：扩容为原来容量的2倍，并将原有的数据复制过来。</p>
+</blockquote>
+<p> <strong>jdk8 相较于jdk7在底层实现方面的不同：</strong></p>
+<ul>
+<li><ol>
+<li>new HashMap():底层没有创建一个长度为16的数组</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>jdk 8底层的数组是：Node[],而非Entry[]</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>首次调用put()方法时，底层创建长度为16的数组</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>jdk7底层结构只有：数组+链表。jdk8中底层结构：数组+链表+红黑树。形成链表时，<strong>七上八下</strong>（jdk7:新的元素指向旧的元素。jdk8：旧的元素指向新的元素）。当数组的某一个索引位置上的元素以链表形式存在的数据个数 &gt; 8 且当前数组的长度 &gt; 64时，此时此索引位置上的所数据改为使用<strong>红黑树存储</strong>。</li>
+</ol>
+</li>
+</ul>
+<h2 id="Map接口的常用方法"><a href="#Map接口的常用方法" class="headerlink" title="Map接口的常用方法"></a>Map接口的常用方法</h2><ul>
+<li>添加、删除、修改操作：<br> <strong>Object put(Object key,Object value)</strong>：将指定key-value添加到(或修改)当前map对象中<br> <strong>void putAll(Map m)</strong>：将m中的所有key-value对存放到当前map中<br> <strong>Object remove(Object key)</strong>：移除指定key的key-value对，并返回value<br> <strong>void clear()</strong>：清空当前map中的所有数据</li>
+<li>元素查询的操作：<br><strong>Object get(Object key)</strong>：获取指定key对应的value<br><strong>boolean containsKey(Object key)</strong>：是否包含指定的key<br><strong>boolean containsValue(Object value)</strong>：是否包含指定的value<br><strong>int size()</strong>：返回map中key-value对的个数<br><strong>boolean isEmpty()</strong>：判断当前map是否为空<br><strong>boolean equals(Object obj)</strong>：判断当前map和参数对象obj是否相等</li>
+<li>元视图操作的方法：<br><strong>Set keySet()</strong>：返回所有key构成的Set集合<br><strong>Collection values()</strong>：返回所有value构成的Collection集合<br><strong>Set entrySet()</strong>：返回所有key-value对构成的Set集合</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Map&lt;Integer,String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">map.put(<span class="number">1</span>,<span class="string">"a"</span>);</span><br><span class="line">map.put(<span class="number">2</span>,<span class="string">"b"</span>);</span><br><span class="line">map.put(<span class="number">3</span>,<span class="string">"c"</span>);</span><br><span class="line">map.put(<span class="number">1</span>,<span class="string">"d"</span>);     <span class="comment">//修改值</span></span><br><span class="line">System.out.println(map);        <span class="comment">//&#123;1=d, 2=b, 3=c&#125;</span></span><br><span class="line">map.remove(<span class="number">2</span>);</span><br><span class="line">System.out.println(map);        <span class="comment">//&#123;1=d, 3=c&#125;</span></span><br><span class="line">System.out.println(map.get(<span class="number">1</span>));     <span class="comment">//d</span></span><br><span class="line">System.out.println(map.size());     <span class="comment">//2</span></span><br><span class="line">System.out.println(map.containsKey(<span class="number">3</span>));     <span class="comment">//true</span></span><br><span class="line">System.out.println(map.containsValue(<span class="string">"A"</span>));     <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//遍历所有的key集：keySet()</span></span><br><span class="line">System.out.println(<span class="string">"key："</span>);</span><br><span class="line">Set set = map.keySet();</span><br><span class="line">Iterator iterator = set.iterator();</span><br><span class="line"><span class="keyword">while</span>(iterator.hasNext())&#123;</span><br><span class="line">System.out.println(iterator.next());</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(<span class="string">"value:"</span>);</span><br><span class="line"><span class="comment">//遍历所有的value集：values()</span></span><br><span class="line">Collection values = map.values();</span><br><span class="line"><span class="keyword">for</span>(Object obj : values)&#123;</span><br><span class="line">System.out.println(obj);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println();</span><br><span class="line"><span class="comment">//遍历所有的key-value</span></span><br><span class="line"><span class="comment">//方式一：entrySet()</span></span><br><span class="line">Set entrySet = map.entrySet();</span><br><span class="line">Iterator iterator1 = entrySet.iterator();</span><br><span class="line"><span class="keyword">while</span> (iterator1.hasNext())&#123;</span><br><span class="line">Object obj = iterator1.next();</span><br><span class="line"><span class="comment">//entrySet集合中的元素都是entry</span></span><br><span class="line">Map.Entry entry = (Map.Entry) obj;</span><br><span class="line">System.out.println(entry.getKey() + <span class="string">"--&gt;"</span> + entry.getValue());</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">System.out.println();</span><br><span class="line"><span class="comment">//方式二：</span></span><br><span class="line">Set keySet = map.keySet();</span><br><span class="line">Iterator iterator2 = keySet.iterator();</span><br><span class="line"><span class="keyword">while</span>(iterator2.hasNext()) &#123;</span><br><span class="line">Object key = iterator2.next();</span><br><span class="line">Object value = map.get(key);</span><br><span class="line">System.out.println(key + <span class="string">"--&gt;"</span> + value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>常用方法</strong>：</p>
+<ul>
+<li>添加：put(Object key,Object value)</li>
+<li>删除：remove(Object key)</li>
+<li>修改：put(Object key,Object value)</li>
+<li>查询：get(Object key)</li>
+<li>长度：size()</li>
+<li>遍历：keySet() / values() / entrySet()</li>
+</ul>
+<h2 id="TreeMap的自然排序和定制排序"><a href="#TreeMap的自然排序和定制排序" class="headerlink" title="TreeMap的自然排序和定制排序"></a>TreeMap的自然排序和定制排序</h2><blockquote>
+<p><strong>向TreeMap中添加key-value，要求key必须是由同一个类创建的对象。因为要按照key进行排序：自然排序 、定制排序</strong></p>
+</blockquote>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="Collections工具类"><a href="#Collections工具类" class="headerlink" title="Collections工具类"></a>Collections工具类</h1><p><strong>reverse(List)</strong>：反转 List 中元素的顺序<br><strong>shuffle(List)</strong>：对 List 集合元素进行随机排序<br><strong>sort(List)</strong>：根据元素的自然顺序对指定 List 集合元素按升序排序<br><strong>sort(List，Comparator)</strong>：根据指定的 Comparator 产生的顺序对 List 集合元素进行排序<br><strong>swap(List，int， int)</strong>：将指定 list 集合中的 i 处元素和 j 处元素进行交换</p>
+<p><strong>Object max(Collection)</strong>：根据元素的自然顺序，返回给定集合中的最大元素<br><strong>Object max(Collection，Comparator)</strong>：根据 Comparator 指定的顺序，返回给定集合中的最大元素<br><strong>Object min(Collection)</strong><br><strong>Object min(Collection，Comparator)</strong><br><strong>int frequency(Collection，Object)</strong>：返回指定集合中指定元素的出现次数<br><strong>void copy(List dest,List src)</strong>：将src中的内容复制到dest中<br><strong>boolean replaceAll(List list，Object oldVal，Object newVal)</strong>：使用新值替换 List 对象的所有旧值</p>
+]]></content>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java基础（常用类之String类）</title>
     <url>/2020/04/26/Java%E5%9F%BA%E7%A1%80%EF%BC%88%E5%B8%B8%E7%94%A8%E7%B1%BB%E4%B9%8BString%E7%B1%BB%EF%BC%89/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="一、String简介"><a href="#一、String简介" class="headerlink" title="一、String简介"></a>一、String简介</h1><blockquote>
