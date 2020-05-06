@@ -39,22 +39,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","Pisces | Gemini":240,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Hadoop重要组件">
+  <meta name="description" content="Java基础之IO流的使用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分布式文件系统-HDFS">
-<meta property="og:url" content="http://yoursite.com/2020/01/30/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E2%80%94HDFS/index.html">
+<meta property="og:title" content="Java基础（IO流）">
+<meta property="og:url" content="http://yoursite.com/2020/05/05/Java%E5%9F%BA%E7%A1%80%EF%BC%88IO%E6%B5%81%EF%BC%89/index.html">
 <meta property="og:site_name" content="Dream-fish">
-<meta property="og:description" content="Hadoop重要组件">
+<meta property="og:description" content="Java基础之IO流的使用">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/dashingwj/CDN/hadoop.jpg">
-<meta property="article:published_time" content="2020-01-30T04:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-15T09:51:56.316Z">
+<meta property="article:published_time" content="2020-05-05T05:30:34.000Z">
+<meta property="article:modified_time" content="2020-05-06T15:34:18.178Z">
 <meta property="article:author" content="二十二">
-<meta property="article:tag" content="HDFS">
+<meta property="article:tag" content="IO流">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/dashingwj/CDN/hadoop.jpg">
 
-<link rel="canonical" href="http://yoursite.com/2020/01/30/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E2%80%94HDFS/">
+<link rel="canonical" href="http://yoursite.com/2020/05/05/Java%E5%9F%BA%E7%A1%80%EF%BC%88IO%E6%B5%81%EF%BC%89/">
 
 
 <script id="page-configurations">
@@ -66,7 +64,7 @@
   };
 </script>
 
-  <title>分布式文件系统-HDFS | Dream-fish</title>
+  <title>Java基础（IO流） | Dream-fish</title>
   
 
 
@@ -217,7 +215,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/30/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E2%80%94HDFS/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/05/Java%E5%9F%BA%E7%A1%80%EF%BC%88IO%E6%B5%81%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -230,7 +228,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          分布式文件系统-HDFS
+          Java基础（IO流）
         </h1>
 
         <div class="post-meta">
@@ -240,29 +238,18 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-01-30 12:00:00" itemprop="dateCreated datePublished" datetime="2020-01-30T12:00:00+08:00">2020-01-30</time>
+              <time title="创建时间：2020-05-05 13:30:34" itemprop="dateCreated datePublished" datetime="2020-05-05T13:30:34+08:00">2020-05-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-15 17:51:56" itemprop="dateModified" datetime="2020-02-15T17:51:56+08:00">2020-02-15</time>
+                <time title="修改时间：2020-05-06 23:34:18" itemprop="dateModified" datetime="2020-05-06T23:34:18+08:00">2020-05-06</time>
               </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-            </span>
 
           
-            <span id="/2020/01/30/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E2%80%94HDFS/" class="post-meta-item leancloud_visitors" data-flag-title="分布式文件系统-HDFS" title="阅读次数">
+            <span id="/2020/05/05/Java%E5%9F%BA%E7%A1%80%EF%BC%88IO%E6%B5%81%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="Java基础（IO流）" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -277,8 +264,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/01/30/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E2%80%94HDFS/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/30/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E2%80%94HDFS/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/05/05/Java%E5%9F%BA%E7%A1%80%EF%BC%88IO%E6%B5%81%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/05/Java%E5%9F%BA%E7%A1%80%EF%BC%88IO%E6%B5%81%EF%BC%89/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -288,7 +275,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.8k</span>
+              <span>3.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -297,7 +284,7 @@
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               <span>7 分钟</span>
             </span>
-            <div class="post-description">Hadoop重要组件</div>
+            <div class="post-description">Java基础之IO流的使用</div>
 
         </div>
       </header>
@@ -308,159 +295,72 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-            <img src="https://cdn.jsdelivr.net/gh/dashingwj/CDN/hadoop.jpg" itemprop="contentUrl">
-        </div>
-        <p><strong>本文转载于：<a href="https://paperwj.top" target="_blank" rel="noopener">Paperwjun的博客</a></strong></p>
-<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2><p>仅用于个人学习使用且<strong>电脑配置有限</strong>，因此搭建伪分布式模式，即在单节点上启动NameNode、DataNode、SecondaryNameNode等进程，但操作、原理与完全分布式模式一样仅学习还是够用的。HDFS作为Hadoop两大重要组成部分之一，主要解决海量数据存储问题，<a href="https://baike.baidu.com/item/HDFS" target="_blank" rel="noopener">详细信息点击这里哟！</a><br>下面是我的实验环境（Hadoop大多运行在Linux系统下）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">服务器：Centos 6</span><br><span class="line">虚拟机：VMware Workstation Pro 13.0</span><br><span class="line">SSH：MobaXterm</span><br><span class="line">PC：Win10</span><br></pre></td></tr></table></figure>
+        <h1 id="File类的使用"><a href="#File类的使用" class="headerlink" title="File类的使用"></a>File类的使用</h1><blockquote>
+<p>File类的一个对象，代表一个文件或文件目录</p>
+</blockquote>
+<h2 id="实例化File类"><a href="#实例化File类" class="headerlink" title="实例化File类"></a>实例化File类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">File(String filePath)</span><br><span class="line">   File(String parentPath,String childPath)</span><br><span class="line">   File(File parentFile,String childPath)</span><br></pre></td></tr></table></figure>
 
+<h2 id="File的常用方法"><a href="#File的常用方法" class="headerlink" title="File的常用方法"></a>File的常用方法</h2><h3 id="获取功能"><a href="#获取功能" class="headerlink" title="获取功能"></a>获取功能</h3><p><strong>public String getAbsolutePath()</strong>：获取绝对路径<br><strong>public String getPath()</strong> ：获取路径<br><strong>public String getName()</strong> ：获取名称<br><strong>public String getParent()</strong>：获取上层文件目录路径。若无，返回null<br><strong>public long length()</strong> ：获取文件长度（即：字节数）。不能获取目录的长度。<br><strong>public long lastModified()</strong> ：获取最后一次的修改时间，毫秒值</p>
+<p>如下的两个方法适用于文件目录：<br><strong>public String[] list()</strong> ：获取指定目录下的所有文件或者文件目录的名称数组<br><strong>public File[] listFiles()</strong>：获取指定目录下的所有文件或者文件目录的File数组</p>
+<h3 id="重命名功能"><a href="#重命名功能" class="headerlink" title="重命名功能"></a>重命名功能</h3><p> <strong>public boolean renameTo(File dest)</strong>：把文件重命名为指定的文件路径<br>     比如：<code>file1.renameTo(file2)</code>：<br>        <strong>要想保证返回true,需要file1在硬盘中是存在的，且file2不能在硬盘中存在。</strong></p>
+<h3 id="判断功能"><a href="#判断功能" class="headerlink" title="判断功能"></a>判断功能</h3><p><strong>public boolean isDirectory()</strong>：判断是否是文件目录<br><strong>public boolean isFile()</strong> ：判断是否是文件<br><strong>public boolean exists()</strong> ：判断是否存在<br><strong>public boolean canRead()</strong> ：判断是否可读<br><strong>public boolean canWrite()</strong> ：判断是否可写<br><strong>public boolean isHidden()</strong> ：判断是否隐藏</p>
+<h3 id="创建删除功能"><a href="#创建删除功能" class="headerlink" title="创建删除功能"></a>创建删除功能</h3><p><strong>public boolean createNewFile()</strong> ：创建文件。若文件存在，则不创建，返回false<br><strong>public boolean mkdir()</strong> ：创建文件目录。如果此文件目录存在，就不创建了。如果此文件目录的上层目录不存在，也不创建。<br><strong>public boolean mkdirs()</strong> ：创建文件目录。如果此文件目录存在，就不创建了。如果上层文件目录不存在，一并创建</p>
+<p><strong>public boolean delete()</strong>：删除文件或者文件夹<br>    删除注意事项：Java中的删除不走回收站。</p>
+<h1 id="IO流原理及流的分类"><a href="#IO流原理及流的分类" class="headerlink" title="IO流原理及流的分类"></a>IO流原理及流的分类</h1><h2 id="流的分类"><a href="#流的分类" class="headerlink" title="流的分类"></a>流的分类</h2><p>1、操作数据单位：字节流、字符流</p>
+<p>2、数据的流向：输入流、输出流</p>
+<p>3、流的角色：节点流、处理流</p>
+<h2 id="主要流的体系结构"><a href="#主要流的体系结构" class="headerlink" title="主要流的体系结构"></a>主要流的体系结构</h2><table>
+<thead>
+<tr>
+<th align="center">抽象基类</th>
+<th align="center">节点流（或文件流）</th>
+<th align="center">缓冲流（处理流的一种）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">InputStream</td>
+<td align="center">FileInputStream   (read(byte[] buffer))</td>
+<td align="center">BufferedInputStream (read(byte[] buffer)</td>
+</tr>
+<tr>
+<td align="center">OutputStream</td>
+<td align="center">FileOutputStream  (write(byte[] buffer,0,len)</td>
+<td align="center">BufferedOutputStream (write(byte[] buffer,0,len) / flush()</td>
+</tr>
+<tr>
+<td align="center">Reader</td>
+<td align="center">FileReader (read(char[] cbuf))</td>
+<td align="center">BufferedReader (read(char[] cbuf) / readLine())</td>
+</tr>
+<tr>
+<td align="center">Writer</td>
+<td align="center">FileWriter (write(char[] cbuf,0,len)</td>
+<td align="center">BufferedWriter (write(char[] cbuf,0,len) / flush()</td>
+</tr>
+</tbody></table>
+<h3 id="FileReader"><a href="#FileReader" class="headerlink" title="FileReader"></a>FileReader</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">FileReader fr = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line"> <span class="comment">//1、File类实例化</span></span><br><span class="line">	File file = <span class="keyword">new</span> File(<span class="string">"test.txt"</span>);</span><br><span class="line"><span class="comment">//2、FileReader流的实例化</span></span><br><span class="line">	fr = <span class="keyword">new</span> FileReader(file);</span><br><span class="line"><span class="comment">//3、数据读入</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//read():返回读入的一个字符，如果达到文件末尾，返回-1</span></span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">   int data = fr.read();</span></span><br><span class="line"><span class="comment">	while (data != -1) &#123;</span></span><br><span class="line"><span class="comment">		System.out.print((char) data);</span></span><br><span class="line"><span class="comment">		data = fr.read();</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">//read(char[] cbuf):返回每次读入cbuf数组中的字符的个数。如果达到文件末尾，返回-1</span></span><br><span class="line">    <span class="keyword">char</span>[] cbuf = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">5</span>];</span><br><span class="line">    <span class="keyword">int</span> len;</span><br><span class="line">    <span class="keyword">while</span>((len = fr.read(cbuf)) != -<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            System.out.print(cbuf[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">	e.printStackTrace();</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line"><span class="comment">//4、关闭流</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">       <span class="keyword">if</span> (fr != <span class="keyword">null</span>)</span><br><span class="line">       fr.close();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    	e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="FileWriter"><a href="#FileWriter" class="headerlink" title="FileWriter"></a>FileWriter</h3><ol>
+<li>输出操作，对应的File可以不存在的。并不会报异常</li>
+<li>File对应的硬盘中的文件如果不存在，在输出的过程中，会自动创建此文件。</li>
+<li>File对应的硬盘中的文件如果存在：<br> 如果流使用的构造器是：<strong>FileWriter(file,false) / FileWriter(file)</strong>，则对原有文件的覆盖。<br> 如果流使用的构造器是：<strong>FileWriter(file,true)</strong>，则不会对原有文件覆盖，而是在原有文件基础上追加内容。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"> FileWriter fw = <span class="keyword">null</span>;</span><br><span class="line"> <span class="keyword">try</span> &#123;</span><br><span class="line"> <span class="comment">//1、提供File类的对象，指明读入和写出的文件</span></span><br><span class="line">     File srcfile = <span class="keyword">new</span> File(<span class="string">"test.txt"</span>);</span><br><span class="line">     File destFile = <span class="keyword">new</span> File(<span class="string">"test2.txt"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//2、创建输入流和输出流的对象</span></span><br><span class="line">    FileReader fr = <span class="keyword">new</span> FileReader(srcfile);</span><br><span class="line">    fw = <span class="keyword">new</span> FileWriter(destFile);</span><br><span class="line"></span><br><span class="line"><span class="comment">//3、读入和写出的操作</span></span><br><span class="line">    <span class="keyword">char</span>[] cbuf = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">5</span>];</span><br><span class="line">    <span class="keyword">int</span> len;</span><br><span class="line">    <span class="keyword">while</span> ((len = fr.read(cbuf)) != -<span class="number">1</span>) &#123;</span><br><span class="line">    	fw.write(cbuf,<span class="number">0</span>,len);</span><br><span class="line">    &#125;</span><br><span class="line"> &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line"> &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line"><span class="comment">//4、流的关闭</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (fw != <span class="keyword">null</span>)</span><br><span class="line">		fw.close();</span><br><span class="line">	&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    	e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="二、HDFS运行原理"><a href="#二、HDFS运行原理" class="headerlink" title="二、HDFS运行原理"></a>二、HDFS运行原理</h1><h2 id="1-HDFS概念"><a href="#1-HDFS概念" class="headerlink" title="1.HDFS概念"></a>1.HDFS概念</h2><ul>
-<li>HDFS，是 Hadoop Distribute File System 的简称，意为：Hadoop 分布式文件系统。是 Hadoop 核心组件之一。 </li>
-<li>HDFS解决的问题就是大数据的存储。它们是横跨在多台计算机上的存储系统。分布式文件系统在大数据时代有着广泛的应用前景，它们为存储和处理超大规模数据提供所需的扩展能力。</li>
-<li>HDFS起源于Google的GFS论文（GFS，Mapreduce，BigTable为google的旧的三驾马车）</li>
-</ul>
-<h2 id="2-HDFS优缺点"><a href="#2-HDFS优缺点" class="headerlink" title="2.HDFS优缺点"></a>2.HDFS优缺点</h2><ul>
-<li><p>优点</p>
+<h3 id="FileInputStream和FileOutputStream"><a href="#FileInputStream和FileOutputStream" class="headerlink" title="FileInputStream和FileOutputStream"></a>FileInputStream和FileOutputStream</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//复制图片</span></span><br><span class="line">        FileInputStream fis = <span class="keyword">null</span>;</span><br><span class="line">        FileOutputStream foc = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">             </span><br><span class="line">            File srcFile = <span class="keyword">new</span> File(<span class="string">"p1.jpg"</span>);</span><br><span class="line">            File decFile = <span class="keyword">new</span> File(<span class="string">"p2.jpg"</span>);</span><br><span class="line"></span><br><span class="line">            fis = <span class="keyword">new</span> FileInputStream(srcFile);</span><br><span class="line">            foc = <span class="keyword">new</span> FileOutputStream(decFile);</span><br><span class="line">            <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">5</span>];</span><br><span class="line">            <span class="keyword">int</span> len;</span><br><span class="line">            <span class="keyword">while</span> ((len = fis.read(buffer)) != -<span class="number">1</span>)&#123;</span><br><span class="line">               foc.write(buffer,<span class="number">0</span>,len);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (fis != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    fis.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="缓冲流的使用"><a href="#缓冲流的使用" class="headerlink" title="缓冲流的使用"></a>缓冲流的使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BufferedInputStream bis = <span class="keyword">new</span> BufferedInputStream(srcFile);</span><br><span class="line">BufferedOutputStream bos = <span class="keyword">new</span> BufferedOutputStream(destFile);</span><br></pre></td></tr></table></figure>
+
+<p>作用：内部提供了一个缓冲区，提升了流的读取、写入速度</p>
+<h3 id="转换流"><a href="#转换流" class="headerlink" title="转换流"></a>转换流</h3><p> <strong>属于字符流</strong></p>
 <ul>
-<li>高容错性</li>
-<li>适合大数据处理</li>
-<li>可搭建在廉价的机器上</li>
+<li><strong>InputStreamReader</strong>：将一个字节的输入流转换为字符的输入流</li>
+<li><strong>OutputStreamWriter</strong>：将一个字符的输出流转换为字节的输出流</li>
 </ul>
-</li>
-<li><p>缺点</p>
-<ul>
-<li>不适合低延迟数据访问</li>
-<li>不适合大量小文件进行存储</li>
-<li>不支持文件并发写入和文件随机修改</li>
-</ul>
-</li>
-</ul>
-<h2 id="3-HDFS组成架构（重点）"><a href="#3-HDFS组成架构（重点）" class="headerlink" title="3.HDFS组成架构（重点）"></a>3.HDFS组成架构（重点）</h2><p>HDFS 采用 master/slave 架构。一般一个 HDFS 集群是有一个 Namenode 和一定数目的Datanode 组成。Namenode 是 HDFS 集群主节点，Datanode 是 HDFS 集群从节点，两种角色各司其职，共同协调完成分布式的文件存储服务。</p>
-<p><img src="https://hadoop.apache.org/docs/r1.0.4/cn/images/hdfsarchitecture.gif" alt="HDFS架构设计"></p>
-<ul>
-<li><p>Client：客户端</p>
-<ul>
-<li>文件切分。文件上传HDFS的时候，Client将文件切分成一个一个的Block</li>
-<li>与NameNode交互，获取文件的位置信息  </li>
-<li>与DataNode交互，读取或者写入数据  </li>
-<li>提供一些命令来管理HDFS</li>
-</ul>
-</li>
-<li><p>NameNode：名称节点。就是Master，它是一个主管、管理者、老大  </p>
-<ul>
-<li>存储元数据（内存中）</li>
-<li>保存block与DataNode之间的映射关系</li>
-</ul>
-</li>
-<li><p>DataNode：数据节点。就是小弟。NameNode下达命令，DataNode执行实际的操作  </p>
-<ul>
-<li>存储文件内容（磁盘）</li>
-<li>维护block ID到DataNode本地文件的映射关系</li>
-<li>存储到本地Linux系统中</li>
-</ul>
-</li>
-<li><p>SecondaryNameNode：第二名称节点。NameNode的<strong>冷备份</strong></p>
-<ul>
-<li>主要解决EditLog不断增大的问题（下面会详细介绍）</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-1-Block大小"><a href="#3-1-Block大小" class="headerlink" title="3.1 Block大小"></a>3.1 Block大小</h3><p>​        HDFS中的文件在物理上是分块存储（block），块的大小可以通过配置参数(<code>dfs.blocksize</code>)来规定，默认大小在hadoop2.x版本中是128M，老版本中是64M。HDFS的块设计成，其目的是为了最小化寻址开销。如果块设置得足够大，从磁盘传输数据的时间会明显大于定位这个块开始位置所需的时间。因而，传输一个由多个块组成的文件的时间取决于磁盘传输速率。</p>
-<h3 id="3-2-副本机制"><a href="#3-2-副本机制" class="headerlink" title="3.2 副本机制"></a>3.2 副本机制</h3><p>​        为了容错，文件的所有 block 都会有副本。每个文件的 block 大小和副本系数都是可配置的。应用程序可以指定某个文件的副本数目，副本系数可以在文件创建的时候指定，也可以在之后改变。  </p>
-<h3 id="3-3-元数据"><a href="#3-3-元数据" class="headerlink" title="3.3 元数据"></a>3.3 元数据</h3><p>​         数据的描述信息，比如这个文件的路径，这个文件的副本数，每个副本保存在哪个DataNode上，就相当于真真正正的一个人，他有一些信息：身高、体重、姓名、性别等，通过这些信息就可以描述这个人，那描述HDFS上真实数据的信息，就称为元数据。  <img src="https://hadoop.apache.org/docs/r1.0.4/cn/images/hdfsdatanodes.gif" alt=""></p>
-<h2 id="4-HDFS运行原理（重点）"><a href="#4-HDFS运行原理（重点）" class="headerlink" title="4.HDFS运行原理（重点）"></a>4.HDFS运行原理（重点）</h2><ul>
-<li><p>NameNode启动</p>
-<ul>
-<li>将FsImage文件内容加载到内存中</li>
-<li>执行EditLog文件的各项操作，使得内存的元数据和实际的同步</li>
-<li>得到新的FsImage并创建一个空的EditLog文件</li>
-<li>启动后所有的操作都记录在EditLog，并不会添加在FsImage中</li>
-</ul>
-</li>
-<li><p>DataNode启动</p>
-</li>
-<li><p>SecondaryNameNode启动</p>
-</li>
-</ul>
-<p>FsImage：维护文件系统树以及文件树中所有的文件和文件夹的元数据，但不维护块在哪个DataNode（通过NameNode与DataNode实时沟通生成文件目录并储存在内存中），主要记录文件复制等级、修改和访问时间、访问权限、块大小等</p>
-<p>EditLog：操作日志文件，记录所有针对文件的增删改查等操作</p>
-<p>通过FsImage和EditLog的结合就能完成所有文件的增删改查，但随着文件的修改EditLog会变得非常庞大，这时候就需要通过SecondaryNameNode来解决。</p>
-<h3 id="4-1-NameNode运行机制"><a href="#4-1-NameNode运行机制" class="headerlink" title="4.1 NameNode运行机制"></a>4.1 NameNode运行机制</h3><ul>
-<li>1.SecondaryNameNode会定期和NameNode通信，请求暂停使用EditLog文件，暂时将新的操作写在新的文件EditLog.new上且瞬间完成。</li>
-<li>2.SecondaryNameNode通过HTTP GET方式从NameNode上获取FsImage和EditLog并下载到本地。</li>
-<li>3.SecondaryNameNode将下载的FsImage载入内存并与EditLog进行合并</li>
-<li>4.SecondaryNameNode通过post方式将新的FsImage发送给NameNode  </li>
-<li>5.NameNode将新的FsImage替换掉，同时将EditLog.new替换成EditLog  </li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/dashingwj/BlogImg/HDFS/1.png" alt=""></p>
-<h3 id="4-2-HDFS思维导图"><a href="#4-2-HDFS思维导图" class="headerlink" title="4.2 HDFS思维导图"></a>4.2 HDFS思维导图</h3><p>凑合着看，别问为什么是个图片，问就是没钱^_^</p>
-<p><img src="https://cdn.jsdelivr.net/gh/dashingwj/BlogImg/HDFS/2.jpg" alt=""></p>
-<h1 id="三、HDFS实操"><a href="#三、HDFS实操" class="headerlink" title="三、HDFS实操"></a>三、HDFS实操</h1><h2 id="1-安装虚拟机"><a href="#1-安装虚拟机" class="headerlink" title="1.安装虚拟机"></a>1.安装虚拟机</h2><p>这里强烈推荐一个微信公众号<strong>管家课堂</strong>，为数不多的超良心公众号，各种常用软件安装教程。<a href="https://mp.weixin.qq.com/s/GPMsgE-BFklqUmFwafPVLw" target="_blank" rel="noopener">这是一个安装传送门，记得关注哟</a></p>
-<h2 id="2-安装Linux并安装Hadoop"><a href="#2-安装Linux并安装Hadoop" class="headerlink" title="2.安装Linux并安装Hadoop"></a>2.安装Linux并安装Hadoop</h2><p>我已经将配置好的Centos6打包好了<a href="https://pan.baidu.com/s/1eJx9wWaxsr4n_68m2GcD1w" target="_blank" rel="noopener">网盘链接，提取码:cpj1</a></p>
-<p>[当然爱折腾的可自行下载、配置、安装]。</p>
-<p>解压下载好的安装包，打开VMware虚拟机，点击文件-&gt;打开（<strong>快捷键Ctrl + O</strong>），找到刚才解压的路径打开linux01虚拟机配置即可</p>
-<p><img src="https://cdn.jsdelivr.net/gh/dashingwj/BlogImg/HDFS/3.png" alt=""></p>
-<p>出现该提示点击<strong>我已移动该虚拟机</strong>，无需其他操作等待加载完成即可</p>
-<p><img src="https://cdn.jsdelivr.net/gh/dashingwj/BlogImg/HDFS/4.png" alt=""></p>
-<p>该虚拟机用户名如下，要使用<strong>root账户</strong>[权限高]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">用户1：admin</span><br><span class="line">密码：123456</span><br><span class="line">用户2：root</span><br><span class="line">密码：123456</span><br></pre></td></tr></table></figure>
+<p><strong>作用</strong>：提供字节流与字符流之间的转换</p>
+<p><strong>解码</strong>：字节、字节数组  —&gt;字符数组、字符串</p>
+<p><strong>编码</strong>：字符数组、字符串 —&gt; 字节、字节数组</p>
 
-<p>如下即为Centos6的桌面</p>
-<p><img src="https://cdn.jsdelivr.net/gh/dashingwj/BlogImg/HDFS/5.png" alt=""></p>
-<p>从PC机文件上传到虚拟机并不容易，因此我们使用SSH远程连接Linux，这里我使用MobaXterm。首先我们需要<strong>获取这个Linux的IP地址</strong>，右击桌面点击在终端打开输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/dashingwj/BlogImg/HDFS/6.png" alt=""></p>
-<p>框选出来的就是本机IP，打开<strong>MobaXterm-&gt;Session-&gt;SSH</strong>输入刚才得到的IP即可，</p>
-<p><img src="https://cdn.jsdelivr.net/gh/dashingwj/BlogImg/HDFS/7.png" alt=""></p>
-<p>第一次连接需要输入root用户的密码，<strong>注：Linux为保护用户安全，在你输入密码时屏幕并不会出现任何符号。</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/dashingwj/BlogImg/HDFS/8.png" alt=""></p>
-<p>黑色背景区域即为Linux终端，一般使用Lin系统是不会选择启动图形化界面的。左边文件夹区域为Linux的文件系统，当需要将PC机文件上传到Linux时，只需拖拽即可。</p>
-<p><strong>这个Linux系统已经集成了Hadoop，不需要额外安装。</strong></p>
-<h2 id="3-HDFS常见操作命令"><a href="#3-HDFS常见操作命令" class="headerlink" title="3.HDFS常见操作命令"></a>3.HDFS常见操作命令</h2><p>首先需要修改一下配置，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;hosts</span><br></pre></td></tr></table></figure>
-
-<p>按<code>i</code>，将<strong>最后一行的IP修改为自己</strong>的，按<code>Esc</code>退出修改模式并输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:wq</span><br></pre></td></tr></table></figure>
-
-<p>保存并关闭，上述只是Linux系统的操作命令，在我另一篇文章会有详细介绍，并且Hadoop的一些命令和Linux及其一致。</p>
-<p>启动HDFS</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-dfs.sh</span><br></pre></td></tr></table></figure>
-
-<p>启动完成可查看当前进程检查HDFS是否全部启动，输入如下代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jps</span><br></pre></td></tr></table></figure>
-
-<p>当看到NameNode、DataNode、SecondaryNameNode即为启动成功</p>
-<p><img src="https://cdn.jsdelivr.net/gh/dashingwj/BlogImg/HDFS/9.png" alt=""></p>
-<p>若有没有启动的可以结束HDFS并在此启动，代码如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stop-dfs.sh</span><br><span class="line">start-dfs.sh</span><br></pre></td></tr></table></figure>
-
-<p>查看当前HDFS文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -ls &#x2F;</span><br></pre></td></tr></table></figure>
-
-<p>在HDFS新建文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -mkdir &#x2F;Test	&#x2F;&#x2F;在根目录下创建Test文件夹</span><br></pre></td></tr></table></figure>
-
-<p>删除HDFS指定文件(夹)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -rm -f &#x2F;Test	&#x2F;&#x2F;删除指定文件夹</span><br><span class="line">hdfs dfs -rm &#x2F;name.txt	&#x2F;&#x2F;删除指定文件</span><br></pre></td></tr></table></figure>
-
-<p>将Linux文件上传到HDFS上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -put &#x2F;MapReduce&#x2F;test.txt &#x2F;Data</span><br></pre></td></tr></table></figure>
-
-<p>第一个路径为Linux要上传文件的绝对路径，第二个为上传到HDFS的路径（上述代码不要直接复制，因为你的Linux和HDFS可能没有这个文件夹和文件）</p>
-<p>将HDFS文件下载到Linux本地</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -get &#x2F;Data&#x2F;text &#x2F;MapReduce</span><br></pre></td></tr></table></figure>
-
-<p>同理第一个路径为HDFS要下载文件的绝对路径，第二个为下载到Linux本地的文件路径（Linux本地不能有与要下载文件同名的文件，道理很显然）</p>
-<p>最后，关机命令（虚拟机上的系统很脆弱，要小心呵护不要暴力关机！！！）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shutdown -h now</span><br></pre></td></tr></table></figure>
-
-<p>上述命令基本够用学习MapReduce了，期待下一遍博文将会详细介绍Hadoop另一个重要组件<strong>MapReduce</strong></p>
-<center>![](https://bpic.588ku.com//original_origin_min_pic/18/06/20/f651302009e2e93fb59702e8100e9817.jpg)</center>
-- 需要MobaXterm及其他技术支持联系微信^_^ skr~
     </div>
 <div>    
  
@@ -471,7 +371,7 @@
       </li>
       <li class="post-copyright-link">
         <strong>本文链接：</strong>
-        <a href="/2020/01/30/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E2%80%94HDFS/" title="分布式文件系统-HDFS">2020/01/30/分布式文件系统—HDFS/</a>
+        <a href="/2020/05/05/Java%E5%9F%BA%E7%A1%80%EF%BC%88IO%E6%B5%81%EF%BC%89/" title="Java基础（IO流）">2020/05/05/Java基础（IO流）/</a>
       </li>
       <li class="post-copyright-license">
         <strong>版权声明： </strong>
@@ -518,7 +418,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/web/" rel="tag"><i class="fa fa-tag"></i> web</a>
+              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
           </div>
 
         
@@ -526,11 +426,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/02/15/%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%EF%BC%88Java-MySQL%E5%AE%9E%E7%8E%B0/" rel="next" title="图书管理系统（Java+MySQL实现）">
-      图书管理系统（Java+MySQL实现） <i class="fa fa-chevron-right"></i>
+    <a href="/2020/04/27/Java%E5%9F%BA%E7%A1%80%EF%BC%88%E9%9B%86%E5%90%88%EF%BC%89/" rel="prev" title="Java基础（集合）">
+      <i class="fa fa-chevron-left"></i> Java基础（集合）
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -591,7 +491,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、前言"><span class="nav-number">1.</span> <span class="nav-text">一、前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实验环境"><span class="nav-number">1.1.</span> <span class="nav-text">实验环境</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、HDFS运行原理"><span class="nav-number">2.</span> <span class="nav-text">二、HDFS运行原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-HDFS概念"><span class="nav-number">2.1.</span> <span class="nav-text">1.HDFS概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-HDFS优缺点"><span class="nav-number">2.2.</span> <span class="nav-text">2.HDFS优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-HDFS组成架构（重点）"><span class="nav-number">2.3.</span> <span class="nav-text">3.HDFS组成架构（重点）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-Block大小"><span class="nav-number">2.3.1.</span> <span class="nav-text">3.1 Block大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-副本机制"><span class="nav-number">2.3.2.</span> <span class="nav-text">3.2 副本机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-元数据"><span class="nav-number">2.3.3.</span> <span class="nav-text">3.3 元数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-HDFS运行原理（重点）"><span class="nav-number">2.4.</span> <span class="nav-text">4.HDFS运行原理（重点）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-NameNode运行机制"><span class="nav-number">2.4.1.</span> <span class="nav-text">4.1 NameNode运行机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-HDFS思维导图"><span class="nav-number">2.4.2.</span> <span class="nav-text">4.2 HDFS思维导图</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、HDFS实操"><span class="nav-number">3.</span> <span class="nav-text">三、HDFS实操</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装虚拟机"><span class="nav-number">3.1.</span> <span class="nav-text">1.安装虚拟机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装Linux并安装Hadoop"><span class="nav-number">3.2.</span> <span class="nav-text">2.安装Linux并安装Hadoop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-HDFS常见操作命令"><span class="nav-number">3.3.</span> <span class="nav-text">3.HDFS常见操作命令</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#File类的使用"><span class="nav-number">1.</span> <span class="nav-text">File类的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实例化File类"><span class="nav-number">1.1.</span> <span class="nav-text">实例化File类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#File的常用方法"><span class="nav-number">1.2.</span> <span class="nav-text">File的常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取功能"><span class="nav-number">1.2.1.</span> <span class="nav-text">获取功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重命名功能"><span class="nav-number">1.2.2.</span> <span class="nav-text">重命名功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断功能"><span class="nav-number">1.2.3.</span> <span class="nav-text">判断功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建删除功能"><span class="nav-number">1.2.4.</span> <span class="nav-text">创建删除功能</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IO流原理及流的分类"><span class="nav-number">2.</span> <span class="nav-text">IO流原理及流的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#流的分类"><span class="nav-number">2.1.</span> <span class="nav-text">流的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主要流的体系结构"><span class="nav-number">2.2.</span> <span class="nav-text">主要流的体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FileReader"><span class="nav-number">2.2.1.</span> <span class="nav-text">FileReader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FileWriter"><span class="nav-number">2.2.2.</span> <span class="nav-text">FileWriter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FileInputStream和FileOutputStream"><span class="nav-number">2.2.3.</span> <span class="nav-text">FileInputStream和FileOutputStream</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓冲流的使用"><span class="nav-number">2.2.4.</span> <span class="nav-text">缓冲流的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换流"><span class="nav-number">2.2.5.</span> <span class="nav-text">转换流</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
