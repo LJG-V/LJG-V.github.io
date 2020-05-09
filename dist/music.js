@@ -47,10 +47,10 @@ const ap = new APlayer({
         cover: 'http://p2.music.126.net/UsSAd3Bdf77DjhCuTSEvUw==/109951163077613693.jpg?param=130y130',
       },
 {
-        name: '说散就散',
-        artist: '袁娅维',
-        url: 'https://music.163.com/song/media/outer/url?id=523251118.mp3',
-        cover: 'http://p1.music.126.net/Yj2g6u9X6UCZPaRLCoJ5mQ==/109951163169027515.jpg?param=130y130',
+        name: '所念皆星河',
+        artist: 'CMJ',
+        url: 'https://music.163.com/song/media/outer/url?id=1384026889.mp3',
+        cover: 'http://p2.music.126.net/M34HFzLO2xhDLuX_zEALKA==/109951164291347934.jpg?param=130y130',
       },
 {
         name: '出山',
@@ -63,6 +63,12 @@ const ap = new APlayer({
         artist: '陈鸿宇',
         url: 'https://music.163.com/song/media/outer/url?id=31445772.mp3',
         cover: 'http://p1.music.126.net/cqTTEPAaxXG3cOwaE4E_-g==/109951163104103366.jpg?param=130y130',
+      },
+{
+        name: '无人之岛',
+        artist: '任然',
+        url: 'https://music.163.com/song/media/outer/url?id=493735012.mp3',
+        cover: 'http://p1.music.126.net/mIUtHBPTJ52H78_FhHzcWg==/19188676928210304.jpg?param=130y130',
       }
     ]
 });
